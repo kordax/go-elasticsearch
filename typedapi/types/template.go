@@ -26,7 +26,6 @@ package types
 type Template struct {
 	Aliases  map[string]Alias `json:"aliases"`
 	Mappings TypeMapping      `json:"mappings"`
-	Settings IndexSettings    `json:"settings"`
 }
 
 // NewTemplate returns a Template.

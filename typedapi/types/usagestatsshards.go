@@ -34,7 +34,6 @@ import (
 // https://github.com/elastic/elasticsearch-specification/blob/48e2d9de9de2911b8cb1cf715e4bc0a2b1f4b827/specification/indices/field_usage_stats/IndicesFieldUsageStatsResponse.ts#L45-L50
 type UsageStatsShards struct {
 	Routing                 ShardRouting       `json:"routing"`
-	Stats                   IndicesShardsStats `json:"stats"`
 	TrackingId              string             `json:"tracking_id"`
 	TrackingStartedAtMillis int64              `json:"tracking_started_at_millis"`
 }
@@ -58,12 +57,7 @@ func (s *UsageStatsShards) UnmarshalJSON(data []byte) error {
 			if err := dec.Decode(&s.Routing); err != nil {
 				return fmt.Errorf("%s | %w", "Routing", err)
 			}
-
-		case "stats":
-			if err := dec.Decode(&s.Stats); err != nil {
-				return fmt.Errorf("%s | %w", "Stats", err)
-			}
-
+			
 		case "tracking_id":
 			var tmp json.RawMessage
 			if err := dec.Decode(&tmp); err != nil {

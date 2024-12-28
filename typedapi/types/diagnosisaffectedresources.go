@@ -34,7 +34,6 @@ import (
 type DiagnosisAffectedResources struct {
 	FeatureStates        []string        `json:"feature_states,omitempty"`
 	Indices              []string        `json:"indices,omitempty"`
-	Nodes                []IndicatorNode `json:"nodes,omitempty"`
 	SlmPolicies          []string        `json:"slm_policies,omitempty"`
 	SnapshotRepositories []string        `json:"snapshot_repositories,omitempty"`
 }
@@ -74,12 +73,7 @@ func (s *DiagnosisAffectedResources) UnmarshalJSON(data []byte) error {
 					return fmt.Errorf("%s | %w", "Indices", err)
 				}
 			}
-
-		case "nodes":
-			if err := dec.Decode(&s.Nodes); err != nil {
-				return fmt.Errorf("%s | %w", "Nodes", err)
-			}
-
+			
 		case "slm_policies":
 			if err := dec.Decode(&s.SlmPolicies); err != nil {
 				return fmt.Errorf("%s | %w", "SlmPolicies", err)

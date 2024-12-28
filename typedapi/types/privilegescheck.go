@@ -31,7 +31,6 @@ type PrivilegesCheck struct {
 	Application []ApplicationPrivilegesCheck `json:"application,omitempty"`
 	// Cluster A list of the cluster privileges that you want to check.
 	Cluster []clusterprivilege.ClusterPrivilege `json:"cluster,omitempty"`
-	Index   []IndexPrivilegesCheck              `json:"index,omitempty"`
 }
 
 // NewPrivilegesCheck returns a PrivilegesCheck.

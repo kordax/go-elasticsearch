@@ -36,7 +36,6 @@ type TransformStats struct {
 	Checkpointing Checkpointing         `json:"checkpointing"`
 	Health        *TransformStatsHealth `json:"health,omitempty"`
 	Id            string                `json:"id"`
-	Node          *NodeAttributes       `json:"node,omitempty"`
 	Reason        *string               `json:"reason,omitempty"`
 	State         string                `json:"state"`
 	Stats         TransformIndexerStats `json:"stats"`
@@ -70,11 +69,6 @@ func (s *TransformStats) UnmarshalJSON(data []byte) error {
 		case "id":
 			if err := dec.Decode(&s.Id); err != nil {
 				return fmt.Errorf("%s | %w", "Id", err)
-			}
-
-		case "node":
-			if err := dec.Decode(&s.Node); err != nil {
-				return fmt.Errorf("%s | %w", "Node", err)
 			}
 
 		case "reason":

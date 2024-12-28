@@ -37,7 +37,6 @@ import (
 type SearchInputRequestDefinition struct {
 	Body               *SearchInputRequestBody    `json:"body,omitempty"`
 	Indices            []string                   `json:"indices,omitempty"`
-	IndicesOptions     *IndicesOptions            `json:"indices_options,omitempty"`
 	RestTotalHitsAsInt *bool                      `json:"rest_total_hits_as_int,omitempty"`
 	SearchType         *searchtype.SearchType     `json:"search_type,omitempty"`
 	Template           *SearchTemplateRequestBody `json:"template,omitempty"`
@@ -67,12 +66,7 @@ func (s *SearchInputRequestDefinition) UnmarshalJSON(data []byte) error {
 			if err := dec.Decode(&s.Indices); err != nil {
 				return fmt.Errorf("%s | %w", "Indices", err)
 			}
-
-		case "indices_options":
-			if err := dec.Decode(&s.IndicesOptions); err != nil {
-				return fmt.Errorf("%s | %w", "IndicesOptions", err)
-			}
-
+			
 		case "rest_total_hits_as_int":
 			var tmp any
 			dec.Decode(&tmp)

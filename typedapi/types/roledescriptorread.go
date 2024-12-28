@@ -46,8 +46,6 @@ type RoleDescriptorRead struct {
 	// privilege that is request-aware. Support for global privileges is currently
 	// limited to the management of application privileges.
 	Global []GlobalPrivilege `json:"global,omitempty"`
-	// Indices A list of indices permissions entries.
-	Indices []IndicesPrivileges `json:"indices"`
 	// Metadata Optional meta-data. Within the metadata object, keys that begin with `_` are
 	// reserved for system usage.
 	Metadata Metadata `json:"metadata,omitempty"`
@@ -108,12 +106,7 @@ func (s *RoleDescriptorRead) UnmarshalJSON(data []byte) error {
 					return fmt.Errorf("%s | %w", "Global", err)
 				}
 			}
-
-		case "indices", "index":
-			if err := dec.Decode(&s.Indices); err != nil {
-				return fmt.Errorf("%s | %w", "Indices", err)
-			}
-
+			
 		case "metadata":
 			if err := dec.Decode(&s.Metadata); err != nil {
 				return fmt.Errorf("%s | %w", "Metadata", err)

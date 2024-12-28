@@ -39,7 +39,6 @@ type ExecutionResultAction struct {
 	Email     *EmailResult                            `json:"email,omitempty"`
 	Error     *ErrorCause                             `json:"error,omitempty"`
 	Id        string                                  `json:"id"`
-	Index     *IndexResult                            `json:"index,omitempty"`
 	Logging   *LoggingResult                          `json:"logging,omitempty"`
 	Pagerduty *PagerDutyResult                        `json:"pagerduty,omitempty"`
 	Reason    *string                                 `json:"reason,omitempty"`
@@ -77,11 +76,6 @@ func (s *ExecutionResultAction) UnmarshalJSON(data []byte) error {
 		case "id":
 			if err := dec.Decode(&s.Id); err != nil {
 				return fmt.Errorf("%s | %w", "Id", err)
-			}
-
-		case "index":
-			if err := dec.Decode(&s.Index); err != nil {
-				return fmt.Errorf("%s | %w", "Index", err)
 			}
 
 		case "logging":

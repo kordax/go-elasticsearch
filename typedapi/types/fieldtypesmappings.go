@@ -35,8 +35,6 @@ import (
 type FieldTypesMappings struct {
 	// FieldTypes Contains statistics about field data types used in selected nodes.
 	FieldTypes []FieldTypes `json:"field_types"`
-	// RuntimeFieldTypes Contains statistics about runtime field data types used in selected nodes.
-	RuntimeFieldTypes []ClusterRuntimeFieldTypes `json:"runtime_field_types,omitempty"`
 	// TotalDeduplicatedFieldCount Total number of fields in all non-system indices, accounting for mapping
 	// deduplication.
 	TotalDeduplicatedFieldCount *int `json:"total_deduplicated_field_count,omitempty"`
@@ -66,11 +64,6 @@ func (s *FieldTypesMappings) UnmarshalJSON(data []byte) error {
 		case "field_types":
 			if err := dec.Decode(&s.FieldTypes); err != nil {
 				return fmt.Errorf("%s | %w", "FieldTypes", err)
-			}
-
-		case "runtime_field_types":
-			if err := dec.Decode(&s.RuntimeFieldTypes); err != nil {
-				return fmt.Errorf("%s | %w", "RuntimeFieldTypes", err)
 			}
 
 		case "total_deduplicated_field_count":

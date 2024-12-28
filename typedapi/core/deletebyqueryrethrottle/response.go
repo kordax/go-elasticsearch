@@ -35,9 +35,6 @@ import (
 // https://github.com/elastic/elasticsearch-specification/blob/48e2d9de9de2911b8cb1cf715e4bc0a2b1f4b827/specification/_global/delete_by_query_rethrottle/DeleteByQueryRethrottleResponse.ts#L22-L24
 type Response struct {
 	NodeFailures []types.ErrorCause `json:"node_failures,omitempty"`
-	// Nodes Task information grouped by node, if `group_by` was set to `node` (the
-	// default).
-	Nodes        map[string]types.NodeTasks `json:"nodes,omitempty"`
 	TaskFailures []types.TaskFailure        `json:"task_failures,omitempty"`
 	// Tasks Either a flat list of tasks if `group_by` was set to `none`, or grouped by
 	// parents if
@@ -48,7 +45,6 @@ type Response struct {
 // NewResponse returns a Response
 func NewResponse() *Response {
 	r := &Response{
-		Nodes: make(map[string]types.NodeTasks, 0),
 	}
 	return r
 }
@@ -70,14 +66,6 @@ func (s *Response) UnmarshalJSON(data []byte) error {
 		case "node_failures":
 			if err := dec.Decode(&s.NodeFailures); err != nil {
 				return fmt.Errorf("%s | %w", "NodeFailures", err)
-			}
-
-		case "nodes":
-			if s.Nodes == nil {
-				s.Nodes = make(map[string]types.NodeTasks, 0)
-			}
-			if err := dec.Decode(&s.Nodes); err != nil {
-				return fmt.Errorf("%s | %w", "Nodes", err)
 			}
 
 		case "task_failures":

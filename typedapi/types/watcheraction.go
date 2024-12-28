@@ -39,7 +39,6 @@ type WatcherAction struct {
 	Condition              *WatcherCondition      `json:"condition,omitempty"`
 	Email                  *EmailAction           `json:"email,omitempty"`
 	Foreach                *string                `json:"foreach,omitempty"`
-	Index                  *IndexAction           `json:"index,omitempty"`
 	Logging                *LoggingAction         `json:"logging,omitempty"`
 	MaxIterations          *int                   `json:"max_iterations,omitempty"`
 	Name                   *string                `json:"name,omitempty"`
@@ -92,11 +91,6 @@ func (s *WatcherAction) UnmarshalJSON(data []byte) error {
 				o = string(tmp[:])
 			}
 			s.Foreach = &o
-
-		case "index":
-			if err := dec.Decode(&s.Index); err != nil {
-				return fmt.Errorf("%s | %w", "Index", err)
-			}
 
 		case "logging":
 			if err := dec.Decode(&s.Logging); err != nil {

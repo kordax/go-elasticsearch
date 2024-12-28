@@ -25,9 +25,7 @@ package types
 // https://github.com/elastic/elasticsearch-specification/blob/48e2d9de9de2911b8cb1cf715e4bc0a2b1f4b827/specification/_global/health_report/types.ts#L85-L90
 type MasterIsStableIndicatorDetails struct {
 	ClusterFormation         []MasterIsStableIndicatorClusterFormationNode    `json:"cluster_formation,omitempty"`
-	CurrentMaster            IndicatorNode                                    `json:"current_master"`
 	ExceptionFetchingHistory *MasterIsStableIndicatorExceptionFetchingHistory `json:"exception_fetching_history,omitempty"`
-	RecentMasters            []IndicatorNode                                  `json:"recent_masters"`
 }
 
 // NewMasterIsStableIndicatorDetails returns a MasterIsStableIndicatorDetails.

@@ -494,12 +494,3 @@ func (r *Follow) RemoteCluster(remotecluster string) *Follow {
 
 	return r
 }
-
-// Settings Settings to override from the leader index.
-// API name: settings
-func (r *Follow) Settings(settings *types.IndexSettings) *Follow {
-
-	r.req.Settings = settings
-
-	return r
-}

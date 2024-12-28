@@ -35,7 +35,6 @@ import (
 // https://github.com/elastic/elasticsearch-specification/blob/48e2d9de9de2911b8cb1cf715e4bc0a2b1f4b827/specification/_global/msearch/types.ts#L216-L219
 type MultiSearchItem struct {
 	Aggregations    map[string]Aggregate       `json:"aggregations,omitempty"`
-	Clusters_       *ClusterStatistics         `json:"_clusters,omitempty"`
 	Fields          map[string]json.RawMessage `json:"fields,omitempty"`
 	Hits            HitsMetadata               `json:"hits"`
 	MaxScore        *Float64                   `json:"max_score,omitempty"`
@@ -597,12 +596,7 @@ func (s *MultiSearchItem) UnmarshalJSON(data []byte) error {
 					}
 				}
 			}
-
-		case "_clusters":
-			if err := dec.Decode(&s.Clusters_); err != nil {
-				return fmt.Errorf("%s | %w", "Clusters_", err)
-			}
-
+			
 		case "fields":
 			if s.Fields == nil {
 				s.Fields = make(map[string]json.RawMessage, 0)

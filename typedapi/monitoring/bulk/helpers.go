@@ -84,66 +84,6 @@ func (r *Bulk) CreateOp(op types.CreateOperation, doc interface{}) error {
 	return nil
 }
 
-// IndexOp is a helper function to add an IndexOperation to the current bulk request.
-// doc argument can be a []byte, json.RawMessage or a struct.
-func (r *Bulk) IndexOp(op types.IndexOperation, doc interface{}) error {
-	operation := types.OperationContainer{Index: &op}
-	header, err := json.Marshal(operation)
-	if err != nil {
-		r.buf.Reset()
-		return fmt.Errorf("bulk.IndexOp: %w", err)
-	}
-
-	if _, err := r.buf.Write(header); err != nil {
-		r.buf.Reset()
-		return fmt.Errorf("bulk.IndexOp: %w", err)
-	}
-	if _, err := r.buf.Write([]byte("\n")); err != nil {
-		r.buf.Reset()
-		return fmt.Errorf("bulk.IndexOp: %w", err)
-	}
-
-	switch v := doc.(type) {
-	case []byte:
-		if json.Valid(v) {
-			if _, err := r.buf.Write(v); err != nil {
-				r.buf.Reset()
-				return fmt.Errorf("bulk.IndexOp: %w", err)
-			}
-		} else {
-			r.buf.Reset()
-			return fmt.Errorf("bulk.IndexOp: invalid json")
-		}
-	case json.RawMessage:
-		if json.Valid(v) {
-			if _, err := r.buf.Write(v); err != nil {
-				r.buf.Reset()
-				return fmt.Errorf("bulk.IndexOp: %w", err)
-			}
-		} else {
-			r.buf.Reset()
-			return fmt.Errorf("bulk.IndexOp: invalid json")
-		}
-	default:
-		body, err := json.Marshal(doc)
-		if err != nil {
-			r.buf.Reset()
-			return fmt.Errorf("bulk.IndexOp: %w", err)
-		}
-		if _, err := r.buf.Write(body); err != nil {
-			r.buf.Reset()
-			return fmt.Errorf("bulk.IndexOp: %w", err)
-		}
-	}
-
-	if _, err := r.buf.Write([]byte("\n")); err != nil {
-		r.buf.Reset()
-		return fmt.Errorf("bulk.IndexOp: %w", err)
-	}
-
-	return nil
-}
-
 // UpdateOp is a helper function to add an UpdateOperation with and UpdateAction to the current bulk request.
 // update is optional, if both doc and update.Doc are provided, update.Doc has precedence.
 func (r *Bulk) UpdateOp(op types.UpdateOperation, doc interface{}, update *types.UpdateAction) error {

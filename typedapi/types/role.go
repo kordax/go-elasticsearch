@@ -35,7 +35,6 @@ type Role struct {
 	Applications      []ApplicationPrivileges                   `json:"applications"`
 	Cluster           []string                                  `json:"cluster"`
 	Global            map[string]map[string]map[string][]string `json:"global,omitempty"`
-	Indices           []IndicesPrivileges                       `json:"indices"`
 	Metadata          Metadata                                  `json:"metadata"`
 	RoleTemplates     []RoleTemplate                            `json:"role_templates,omitempty"`
 	RunAs             []string                                  `json:"run_as"`
@@ -74,12 +73,7 @@ func (s *Role) UnmarshalJSON(data []byte) error {
 			if err := dec.Decode(&s.Global); err != nil {
 				return fmt.Errorf("%s | %w", "Global", err)
 			}
-
-		case "indices":
-			if err := dec.Decode(&s.Indices); err != nil {
-				return fmt.Errorf("%s | %w", "Indices", err)
-			}
-
+			
 		case "metadata":
 			if err := dec.Decode(&s.Metadata); err != nil {
 				return fmt.Errorf("%s | %w", "Metadata", err)

@@ -187,15 +187,10 @@ import (
 	rollup_delete_job "github.com/elastic/go-elasticsearch/v8/typedapi/rollup/deletejob"
 	rollup_get_jobs "github.com/elastic/go-elasticsearch/v8/typedapi/rollup/getjobs"
 	rollup_get_rollup_caps "github.com/elastic/go-elasticsearch/v8/typedapi/rollup/getrollupcaps"
-	rollup_get_rollup_index_caps "github.com/elastic/go-elasticsearch/v8/typedapi/rollup/getrollupindexcaps"
 	rollup_put_job "github.com/elastic/go-elasticsearch/v8/typedapi/rollup/putjob"
 	rollup_rollup_search "github.com/elastic/go-elasticsearch/v8/typedapi/rollup/rollupsearch"
 	rollup_start_job "github.com/elastic/go-elasticsearch/v8/typedapi/rollup/startjob"
 	rollup_stop_job "github.com/elastic/go-elasticsearch/v8/typedapi/rollup/stopjob"
-	searchable_snapshots_cache_stats "github.com/elastic/go-elasticsearch/v8/typedapi/searchablesnapshots/cachestats"
-	searchable_snapshots_clear_cache "github.com/elastic/go-elasticsearch/v8/typedapi/searchablesnapshots/clearcache"
-	searchable_snapshots_mount "github.com/elastic/go-elasticsearch/v8/typedapi/searchablesnapshots/mount"
-	searchable_snapshots_stats "github.com/elastic/go-elasticsearch/v8/typedapi/searchablesnapshots/stats"
 	search_application_delete "github.com/elastic/go-elasticsearch/v8/typedapi/searchapplication/delete"
 	search_application_delete_behavioral_analytics "github.com/elastic/go-elasticsearch/v8/typedapi/searchapplication/deletebehavioralanalytics"
 	search_application_get "github.com/elastic/go-elasticsearch/v8/typedapi/searchapplication/get"
@@ -204,81 +199,9 @@ import (
 	search_application_put "github.com/elastic/go-elasticsearch/v8/typedapi/searchapplication/put"
 	search_application_put_behavioral_analytics "github.com/elastic/go-elasticsearch/v8/typedapi/searchapplication/putbehavioralanalytics"
 	search_application_search "github.com/elastic/go-elasticsearch/v8/typedapi/searchapplication/search"
-	security_activate_user_profile "github.com/elastic/go-elasticsearch/v8/typedapi/security/activateuserprofile"
-	security_authenticate "github.com/elastic/go-elasticsearch/v8/typedapi/security/authenticate"
-	security_bulk_delete_role "github.com/elastic/go-elasticsearch/v8/typedapi/security/bulkdeleterole"
-	security_bulk_put_role "github.com/elastic/go-elasticsearch/v8/typedapi/security/bulkputrole"
-	security_bulk_update_api_keys "github.com/elastic/go-elasticsearch/v8/typedapi/security/bulkupdateapikeys"
-	security_change_password "github.com/elastic/go-elasticsearch/v8/typedapi/security/changepassword"
-	security_clear_api_key_cache "github.com/elastic/go-elasticsearch/v8/typedapi/security/clearapikeycache"
-	security_clear_cached_privileges "github.com/elastic/go-elasticsearch/v8/typedapi/security/clearcachedprivileges"
-	security_clear_cached_realms "github.com/elastic/go-elasticsearch/v8/typedapi/security/clearcachedrealms"
-	security_clear_cached_roles "github.com/elastic/go-elasticsearch/v8/typedapi/security/clearcachedroles"
-	security_clear_cached_service_tokens "github.com/elastic/go-elasticsearch/v8/typedapi/security/clearcachedservicetokens"
-	security_create_api_key "github.com/elastic/go-elasticsearch/v8/typedapi/security/createapikey"
-	security_create_cross_cluster_api_key "github.com/elastic/go-elasticsearch/v8/typedapi/security/createcrossclusterapikey"
-	security_create_service_token "github.com/elastic/go-elasticsearch/v8/typedapi/security/createservicetoken"
-	security_delete_privileges "github.com/elastic/go-elasticsearch/v8/typedapi/security/deleteprivileges"
-	security_delete_role "github.com/elastic/go-elasticsearch/v8/typedapi/security/deleterole"
-	security_delete_role_mapping "github.com/elastic/go-elasticsearch/v8/typedapi/security/deleterolemapping"
-	security_delete_service_token "github.com/elastic/go-elasticsearch/v8/typedapi/security/deleteservicetoken"
-	security_delete_user "github.com/elastic/go-elasticsearch/v8/typedapi/security/deleteuser"
-	security_disable_user "github.com/elastic/go-elasticsearch/v8/typedapi/security/disableuser"
-	security_disable_user_profile "github.com/elastic/go-elasticsearch/v8/typedapi/security/disableuserprofile"
-	security_enable_user "github.com/elastic/go-elasticsearch/v8/typedapi/security/enableuser"
-	security_enable_user_profile "github.com/elastic/go-elasticsearch/v8/typedapi/security/enableuserprofile"
-	security_enroll_kibana "github.com/elastic/go-elasticsearch/v8/typedapi/security/enrollkibana"
-	security_enroll_node "github.com/elastic/go-elasticsearch/v8/typedapi/security/enrollnode"
-	security_get_api_key "github.com/elastic/go-elasticsearch/v8/typedapi/security/getapikey"
-	security_get_builtin_privileges "github.com/elastic/go-elasticsearch/v8/typedapi/security/getbuiltinprivileges"
-	security_get_privileges "github.com/elastic/go-elasticsearch/v8/typedapi/security/getprivileges"
-	security_get_role "github.com/elastic/go-elasticsearch/v8/typedapi/security/getrole"
-	security_get_role_mapping "github.com/elastic/go-elasticsearch/v8/typedapi/security/getrolemapping"
-	security_get_service_accounts "github.com/elastic/go-elasticsearch/v8/typedapi/security/getserviceaccounts"
-	security_get_service_credentials "github.com/elastic/go-elasticsearch/v8/typedapi/security/getservicecredentials"
-	security_get_settings "github.com/elastic/go-elasticsearch/v8/typedapi/security/getsettings"
-	security_get_token "github.com/elastic/go-elasticsearch/v8/typedapi/security/gettoken"
-	security_get_user "github.com/elastic/go-elasticsearch/v8/typedapi/security/getuser"
-	security_get_user_privileges "github.com/elastic/go-elasticsearch/v8/typedapi/security/getuserprivileges"
-	security_get_user_profile "github.com/elastic/go-elasticsearch/v8/typedapi/security/getuserprofile"
-	security_grant_api_key "github.com/elastic/go-elasticsearch/v8/typedapi/security/grantapikey"
-	security_has_privileges "github.com/elastic/go-elasticsearch/v8/typedapi/security/hasprivileges"
-	security_has_privileges_user_profile "github.com/elastic/go-elasticsearch/v8/typedapi/security/hasprivilegesuserprofile"
-	security_invalidate_api_key "github.com/elastic/go-elasticsearch/v8/typedapi/security/invalidateapikey"
-	security_invalidate_token "github.com/elastic/go-elasticsearch/v8/typedapi/security/invalidatetoken"
-	security_oidc_authenticate "github.com/elastic/go-elasticsearch/v8/typedapi/security/oidcauthenticate"
-	security_oidc_logout "github.com/elastic/go-elasticsearch/v8/typedapi/security/oidclogout"
-	security_oidc_prepare_authentication "github.com/elastic/go-elasticsearch/v8/typedapi/security/oidcprepareauthentication"
-	security_put_privileges "github.com/elastic/go-elasticsearch/v8/typedapi/security/putprivileges"
-	security_put_role "github.com/elastic/go-elasticsearch/v8/typedapi/security/putrole"
-	security_put_role_mapping "github.com/elastic/go-elasticsearch/v8/typedapi/security/putrolemapping"
-	security_put_user "github.com/elastic/go-elasticsearch/v8/typedapi/security/putuser"
-	security_query_api_keys "github.com/elastic/go-elasticsearch/v8/typedapi/security/queryapikeys"
-	security_query_role "github.com/elastic/go-elasticsearch/v8/typedapi/security/queryrole"
-	security_query_user "github.com/elastic/go-elasticsearch/v8/typedapi/security/queryuser"
-	security_saml_authenticate "github.com/elastic/go-elasticsearch/v8/typedapi/security/samlauthenticate"
-	security_saml_complete_logout "github.com/elastic/go-elasticsearch/v8/typedapi/security/samlcompletelogout"
-	security_saml_invalidate "github.com/elastic/go-elasticsearch/v8/typedapi/security/samlinvalidate"
-	security_saml_logout "github.com/elastic/go-elasticsearch/v8/typedapi/security/samllogout"
-	security_saml_prepare_authentication "github.com/elastic/go-elasticsearch/v8/typedapi/security/samlprepareauthentication"
-	security_saml_service_provider_metadata "github.com/elastic/go-elasticsearch/v8/typedapi/security/samlserviceprovidermetadata"
-	security_suggest_user_profiles "github.com/elastic/go-elasticsearch/v8/typedapi/security/suggestuserprofiles"
-	security_update_api_key "github.com/elastic/go-elasticsearch/v8/typedapi/security/updateapikey"
-	security_update_cross_cluster_api_key "github.com/elastic/go-elasticsearch/v8/typedapi/security/updatecrossclusterapikey"
-	security_update_settings "github.com/elastic/go-elasticsearch/v8/typedapi/security/updatesettings"
-	security_update_user_profile_data "github.com/elastic/go-elasticsearch/v8/typedapi/security/updateuserprofiledata"
 	shutdown_delete_node "github.com/elastic/go-elasticsearch/v8/typedapi/shutdown/deletenode"
 	shutdown_get_node "github.com/elastic/go-elasticsearch/v8/typedapi/shutdown/getnode"
 	shutdown_put_node "github.com/elastic/go-elasticsearch/v8/typedapi/shutdown/putnode"
-	slm_delete_lifecycle "github.com/elastic/go-elasticsearch/v8/typedapi/slm/deletelifecycle"
-	slm_execute_lifecycle "github.com/elastic/go-elasticsearch/v8/typedapi/slm/executelifecycle"
-	slm_execute_retention "github.com/elastic/go-elasticsearch/v8/typedapi/slm/executeretention"
-	slm_get_lifecycle "github.com/elastic/go-elasticsearch/v8/typedapi/slm/getlifecycle"
-	slm_get_stats "github.com/elastic/go-elasticsearch/v8/typedapi/slm/getstats"
-	slm_get_status "github.com/elastic/go-elasticsearch/v8/typedapi/slm/getstatus"
-	slm_put_lifecycle "github.com/elastic/go-elasticsearch/v8/typedapi/slm/putlifecycle"
-	slm_start "github.com/elastic/go-elasticsearch/v8/typedapi/slm/start"
-	slm_stop "github.com/elastic/go-elasticsearch/v8/typedapi/slm/stop"
 	sql_clear_cursor "github.com/elastic/go-elasticsearch/v8/typedapi/sql/clearcursor"
 	sql_delete_async "github.com/elastic/go-elasticsearch/v8/typedapi/sql/deleteasync"
 	sql_get_async "github.com/elastic/go-elasticsearch/v8/typedapi/sql/getasync"
@@ -293,9 +216,6 @@ import (
 	synonyms_get_synonyms_sets "github.com/elastic/go-elasticsearch/v8/typedapi/synonyms/getsynonymssets"
 	synonyms_put_synonym "github.com/elastic/go-elasticsearch/v8/typedapi/synonyms/putsynonym"
 	synonyms_put_synonym_rule "github.com/elastic/go-elasticsearch/v8/typedapi/synonyms/putsynonymrule"
-	tasks_cancel "github.com/elastic/go-elasticsearch/v8/typedapi/tasks/cancel"
-	tasks_get "github.com/elastic/go-elasticsearch/v8/typedapi/tasks/get"
-	tasks_list "github.com/elastic/go-elasticsearch/v8/typedapi/tasks/list"
 	text_structure_find_field_structure "github.com/elastic/go-elasticsearch/v8/typedapi/textstructure/findfieldstructure"
 	text_structure_find_message_structure "github.com/elastic/go-elasticsearch/v8/typedapi/textstructure/findmessagestructure"
 	text_structure_find_structure "github.com/elastic/go-elasticsearch/v8/typedapi/textstructure/findstructure"
@@ -1292,10 +1212,6 @@ type Rollup struct {
 	// specific index or index pattern.
 	// https://www.elastic.co/guide/en/elasticsearch/reference/current/rollup-get-rollup-caps.html
 	GetRollupCaps rollup_get_rollup_caps.NewGetRollupCaps
-	// Returns the rollup capabilities of all jobs inside of a rollup index (for
-	// example, the index where rollup data is stored).
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/rollup-get-rollup-index-caps.html
-	GetRollupIndexCaps rollup_get_rollup_index_caps.NewGetRollupIndexCaps
 	// Creates a rollup job.
 	// https://www.elastic.co/guide/en/elasticsearch/reference/current/rollup-put-job.html
 	PutJob rollup_put_job.NewPutJob
@@ -1345,469 +1261,6 @@ type SearchApplication struct {
 	Search search_application_search.NewSearch
 }
 
-type SearchableSnapshots struct {
-	// Retrieve node-level cache statistics about searchable snapshots.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/searchable-snapshots-apis.html
-	CacheStats searchable_snapshots_cache_stats.NewCacheStats
-	// Clear the cache of searchable snapshots.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/searchable-snapshots-apis.html
-	ClearCache searchable_snapshots_clear_cache.NewClearCache
-	// Mount a snapshot as a searchable index.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/searchable-snapshots-api-mount-snapshot.html
-	Mount searchable_snapshots_mount.NewMount
-	// Retrieve shard-level statistics about searchable snapshots.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/searchable-snapshots-apis.html
-	Stats searchable_snapshots_stats.NewStats
-}
-
-type Security struct {
-	// Activate a user profile.
-	//
-	// Create or update a user profile on behalf of another user.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-activate-user-profile.html
-	ActivateUserProfile security_activate_user_profile.NewActivateUserProfile
-	// Authenticate a user.
-	//
-	// Authenticates a user and returns information about the authenticated user.
-	// Include the user information in a [basic auth
-	// header](https://en.wikipedia.org/wiki/Basic_access_authentication).
-	// A successful call returns a JSON structure that shows user information such
-	// as their username, the roles that are assigned to the user, any assigned
-	// metadata, and information about the realms that authenticated and authorized
-	// the user.
-	// If the user cannot be authenticated, this API returns a 401 status code.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-authenticate.html
-	Authenticate security_authenticate.NewAuthenticate
-	// Bulk delete roles.
-	//
-	// The role management APIs are generally the preferred way to manage roles,
-	// rather than using file-based role management.
-	// The bulk delete roles API cannot delete roles that are defined in roles
-	// files.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-bulk-delete-role.html
-	BulkDeleteRole security_bulk_delete_role.NewBulkDeleteRole
-	// Bulk create or update roles.
-	//
-	// The role management APIs are generally the preferred way to manage roles,
-	// rather than using file-based role management.
-	// The bulk create or update roles API cannot update roles that are defined in
-	// roles files.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-bulk-put-role.html
-	BulkPutRole security_bulk_put_role.NewBulkPutRole
-	// Updates the attributes of multiple existing API keys.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-bulk-update-api-keys.html
-	BulkUpdateApiKeys security_bulk_update_api_keys.NewBulkUpdateApiKeys
-	// Change passwords.
-	//
-	// Change the passwords of users in the native realm and built-in users.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-change-password.html
-	ChangePassword security_change_password.NewChangePassword
-	// Clear the API key cache.
-	//
-	// Evict a subset of all entries from the API key cache.
-	// The cache is also automatically cleared on state changes of the security
-	// index.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-clear-api-key-cache.html
-	ClearApiKeyCache security_clear_api_key_cache.NewClearApiKeyCache
-	// Clear the privileges cache.
-	//
-	// Evict privileges from the native application privilege cache.
-	// The cache is also automatically cleared for applications that have their
-	// privileges updated.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-clear-privilege-cache.html
-	ClearCachedPrivileges security_clear_cached_privileges.NewClearCachedPrivileges
-	// Clear the user cache.
-	//
-	// Evict users from the user cache. You can completely clear the cache or evict
-	// specific users.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-clear-cache.html
-	ClearCachedRealms security_clear_cached_realms.NewClearCachedRealms
-	// Clear the roles cache.
-	//
-	// Evict roles from the native role cache.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-clear-role-cache.html
-	ClearCachedRoles security_clear_cached_roles.NewClearCachedRoles
-	// Clear service account token caches.
-	//
-	// Evict a subset of all entries from the service account token caches.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-clear-service-token-caches.html
-	ClearCachedServiceTokens security_clear_cached_service_tokens.NewClearCachedServiceTokens
-	// Create an API key.
-	//
-	// Create an API key for access without requiring basic authentication.
-	// A successful request returns a JSON structure that contains the API key, its
-	// unique id, and its name.
-	// If applicable, it also returns expiration information for the API key in
-	// milliseconds.
-	// NOTE: By default, API keys never expire. You can specify expiration
-	// information when you create the API keys.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-create-api-key.html
-	CreateApiKey security_create_api_key.NewCreateApiKey
-	// Create a cross-cluster API key.
-	//
-	// Create an API key of the `cross_cluster` type for the API key based remote
-	// cluster access.
-	// A `cross_cluster` API key cannot be used to authenticate through the REST
-	// interface.
-	//
-	// IMPORTANT: To authenticate this request you must use a credential that is not
-	// an API key. Even if you use an API key that has the required privilege, the
-	// API returns an error.
-	//
-	// Cross-cluster API keys are created by the Elasticsearch API key service,
-	// which is automatically enabled.
-	//
-	// NOTE: Unlike REST API keys, a cross-cluster API key does not capture
-	// permissions of the authenticated user. The API key’s effective permission is
-	// exactly as specified with the `access` property.
-	//
-	// A successful request returns a JSON structure that contains the API key, its
-	// unique ID, and its name. If applicable, it also returns expiration
-	// information for the API key in milliseconds.
-	//
-	// By default, API keys never expire. You can specify expiration information
-	// when you create the API keys.
-	//
-	// Cross-cluster API keys can only be updated with the update cross-cluster API
-	// key API.
-	// Attempting to update them with the update REST API key API or the bulk update
-	// REST API keys API will result in an error.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-create-cross-cluster-api-key.html
-	CreateCrossClusterApiKey security_create_cross_cluster_api_key.NewCreateCrossClusterApiKey
-	// Create a service account token.
-	//
-	// Create a service accounts token for access without requiring basic
-	// authentication.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-create-service-token.html
-	CreateServiceToken security_create_service_token.NewCreateServiceToken
-	// Delete application privileges.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-delete-privilege.html
-	DeletePrivileges security_delete_privileges.NewDeletePrivileges
-	// Delete roles.
-	//
-	// Delete roles in the native realm.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-delete-role.html
-	DeleteRole security_delete_role.NewDeleteRole
-	// Delete role mappings.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-delete-role-mapping.html
-	DeleteRoleMapping security_delete_role_mapping.NewDeleteRoleMapping
-	// Delete service account tokens.
-	//
-	// Delete service account tokens for a service in a specified namespace.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-delete-service-token.html
-	DeleteServiceToken security_delete_service_token.NewDeleteServiceToken
-	// Delete users.
-	//
-	// Delete users from the native realm.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-delete-user.html
-	DeleteUser security_delete_user.NewDeleteUser
-	// Disable users.
-	//
-	// Disable users in the native realm.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-disable-user.html
-	DisableUser security_disable_user.NewDisableUser
-	// Disable a user profile.
-	//
-	// Disable user profiles so that they are not visible in user profile searches.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-disable-user-profile.html
-	DisableUserProfile security_disable_user_profile.NewDisableUserProfile
-	// Enable users.
-	//
-	// Enable users in the native realm.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-enable-user.html
-	EnableUser security_enable_user.NewEnableUser
-	// Enable a user profile.
-	//
-	// Enable user profiles to make them visible in user profile searches.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-enable-user-profile.html
-	EnableUserProfile security_enable_user_profile.NewEnableUserProfile
-	// Enroll Kibana.
-	//
-	// Enable a Kibana instance to configure itself for communication with a secured
-	// Elasticsearch cluster.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-kibana-enrollment.html
-	EnrollKibana security_enroll_kibana.NewEnrollKibana
-	// Enroll a node.
-	//
-	// Enroll a new node to allow it to join an existing cluster with security
-	// features enabled.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-node-enrollment.html
-	EnrollNode security_enroll_node.NewEnrollNode
-	// Get API key information.
-	//
-	// Retrieves information for one or more API keys.
-	// NOTE: If you have only the `manage_own_api_key` privilege, this API returns
-	// only the API keys that you own.
-	// If you have `read_security`, `manage_api_key` or greater privileges
-	// (including `manage_security`), this API returns all API keys regardless of
-	// ownership.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-get-api-key.html
-	GetApiKey security_get_api_key.NewGetApiKey
-	// Get builtin privileges.
-	//
-	// Get the list of cluster privileges and index privileges that are available in
-	// this version of Elasticsearch.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-get-builtin-privileges.html
-	GetBuiltinPrivileges security_get_builtin_privileges.NewGetBuiltinPrivileges
-	// Get application privileges.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-get-privileges.html
-	GetPrivileges security_get_privileges.NewGetPrivileges
-	// Get roles.
-	//
-	// Get roles in the native realm.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-get-role.html
-	GetRole security_get_role.NewGetRole
-	// Get role mappings.
-	//
-	// Role mappings define which roles are assigned to each user.
-	// The role mapping APIs are generally the preferred way to manage role mappings
-	// rather than using role mapping files.
-	// The get role mappings API cannot retrieve role mappings that are defined in
-	// role mapping files.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-get-role-mapping.html
-	GetRoleMapping security_get_role_mapping.NewGetRoleMapping
-	// Get service accounts.
-	//
-	// Get a list of service accounts that match the provided path parameters.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-get-service-accounts.html
-	GetServiceAccounts security_get_service_accounts.NewGetServiceAccounts
-	// Get service account credentials.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-get-service-credentials.html
-	GetServiceCredentials security_get_service_credentials.NewGetServiceCredentials
-	// Retrieve settings for the security system indices
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-get-settings.html
-	GetSettings security_get_settings.NewGetSettings
-	// Get a token.
-	//
-	// Create a bearer token for access without requiring basic authentication.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-get-token.html
-	GetToken security_get_token.NewGetToken
-	// Get users.
-	//
-	// Get information about users in the native realm and built-in users.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-get-user.html
-	GetUser security_get_user.NewGetUser
-	// Get user privileges.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-get-user-privileges.html
-	GetUserPrivileges security_get_user_privileges.NewGetUserPrivileges
-	// Get a user profile.
-	//
-	// Get a user's profile using the unique profile ID.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-get-user-profile.html
-	GetUserProfile security_get_user_profile.NewGetUserProfile
-	// Grant an API key.
-	//
-	// Create an API key on behalf of another user.
-	// This API is similar to the create API keys API, however it creates the API
-	// key for a user that is different than the user that runs the API.
-	// The caller must have authentication credentials (either an access token, or a
-	// username and password) for the user on whose behalf the API key will be
-	// created.
-	// It is not possible to use this API to create an API key without that user’s
-	// credentials.
-	// The user, for whom the authentication credentials is provided, can optionally
-	// "run as" (impersonate) another user.
-	// In this case, the API key will be created on behalf of the impersonated user.
-	//
-	// This API is intended be used by applications that need to create and manage
-	// API keys for end users, but cannot guarantee that those users have permission
-	// to create API keys on their own behalf.
-	//
-	// A successful grant API key API call returns a JSON structure that contains
-	// the API key, its unique id, and its name.
-	// If applicable, it also returns expiration information for the API key in
-	// milliseconds.
-	//
-	// By default, API keys never expire. You can specify expiration information
-	// when you create the API keys.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-grant-api-key.html
-	GrantApiKey security_grant_api_key.NewGrantApiKey
-	// Check user privileges.
-	//
-	// Determine whether the specified user has a specified list of privileges.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-has-privileges.html
-	HasPrivileges security_has_privileges.NewHasPrivileges
-	// Check user profile privileges.
-	//
-	// Determine whether the users associated with the specified user profile IDs
-	// have all the requested privileges.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-has-privileges-user-profile.html
-	HasPrivilegesUserProfile security_has_privileges_user_profile.NewHasPrivilegesUserProfile
-	// Invalidate API keys.
-	//
-	// This API invalidates API keys created by the create API key or grant API key
-	// APIs.
-	// Invalidated API keys fail authentication, but they can still be viewed using
-	// the get API key information and query API key information APIs, for at least
-	// the configured retention period, until they are automatically deleted.
-	// The `manage_api_key` privilege allows deleting any API keys.
-	// The `manage_own_api_key` only allows deleting API keys that are owned by the
-	// user.
-	// In addition, with the `manage_own_api_key` privilege, an invalidation request
-	// must be issued in one of the three formats:
-	// - Set the parameter `owner=true`.
-	// - Or, set both `username` and `realm_name` to match the user’s identity.
-	// - Or, if the request is issued by an API key, that is to say an API key
-	// invalidates itself, specify its ID in the `ids` field.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-invalidate-api-key.html
-	InvalidateApiKey security_invalidate_api_key.NewInvalidateApiKey
-	// Invalidate a token.
-	//
-	// The access tokens returned by the get token API have a finite period of time
-	// for which they are valid.
-	// After that time period, they can no longer be used.
-	// The time period is defined by the `xpack.security.authc.token.timeout`
-	// setting.
-	//
-	// The refresh tokens returned by the get token API are only valid for 24 hours.
-	// They can also be used exactly once.
-	// If you want to invalidate one or more access or refresh tokens immediately,
-	// use this invalidate token API.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-invalidate-token.html
-	InvalidateToken security_invalidate_token.NewInvalidateToken
-	// Exchanges an OpenID Connection authentication response message for an
-	// Elasticsearch access token and refresh token pair
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-oidc-authenticate.html
-	OidcAuthenticate security_oidc_authenticate.NewOidcAuthenticate
-	// Invalidates a refresh token and access token that was generated from the
-	// OpenID Connect Authenticate API
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-oidc-logout.html
-	OidcLogout security_oidc_logout.NewOidcLogout
-	// Creates an OAuth 2.0 authentication request as a URL string
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-oidc-prepare-authentication.html
-	OidcPrepareAuthentication security_oidc_prepare_authentication.NewOidcPrepareAuthentication
-	// Create or update application privileges.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-put-privileges.html
-	PutPrivileges security_put_privileges.NewPutPrivileges
-	// Create or update roles.
-	//
-	// The role management APIs are generally the preferred way to manage roles in
-	// the native realm, rather than using file-based role management.
-	// The create or update roles API cannot update roles that are defined in roles
-	// files.
-	// File-based role management is not available in Elastic Serverless.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-put-role.html
-	PutRole security_put_role.NewPutRole
-	// Create or update role mappings.
-	//
-	// Role mappings define which roles are assigned to each user.
-	// Each mapping has rules that identify users and a list of roles that are
-	// granted to those users.
-	// The role mapping APIs are generally the preferred way to manage role mappings
-	// rather than using role mapping files. The create or update role mappings API
-	// cannot update role mappings that are defined in role mapping files.
-	//
-	// This API does not create roles. Rather, it maps users to existing roles.
-	// Roles can be created by using the create or update roles API or roles files.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-put-role-mapping.html
-	PutRoleMapping security_put_role_mapping.NewPutRoleMapping
-	// Create or update users.
-	//
-	// A password is required for adding a new user but is optional when updating an
-	// existing user.
-	// To change a user’s password without updating any other fields, use the change
-	// password API.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-put-user.html
-	PutUser security_put_user.NewPutUser
-	// Find API keys with a query.
-	//
-	// Get a paginated list of API keys and their information. You can optionally
-	// filter the results with a query.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-query-api-key.html
-	QueryApiKeys security_query_api_keys.NewQueryApiKeys
-	// Find roles with a query.
-	//
-	// Get roles in a paginated manner. You can optionally filter the results with a
-	// query.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-query-role.html
-	QueryRole security_query_role.NewQueryRole
-	// Find users with a query.
-	//
-	// Get information for users in a paginated manner.
-	// You can optionally filter the results with a query.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-query-user.html
-	QueryUser security_query_user.NewQueryUser
-	// Authenticate SAML.
-	//
-	// Submits a SAML response message to Elasticsearch for consumption.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-saml-authenticate.html
-	SamlAuthenticate security_saml_authenticate.NewSamlAuthenticate
-	// Logout of SAML completely.
-	//
-	// Verifies the logout response sent from the SAML IdP.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-saml-complete-logout.html
-	SamlCompleteLogout security_saml_complete_logout.NewSamlCompleteLogout
-	// Invalidate SAML.
-	//
-	// Submits a SAML LogoutRequest message to Elasticsearch for consumption.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-saml-invalidate.html
-	SamlInvalidate security_saml_invalidate.NewSamlInvalidate
-	// Logout of SAML.
-	//
-	// Submits a request to invalidate an access token and refresh token.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-saml-logout.html
-	SamlLogout security_saml_logout.NewSamlLogout
-	// Prepare SAML authentication.
-	//
-	// Creates a SAML authentication request (`<AuthnRequest>`) as a URL string,
-	// based on the configuration of the respective SAML realm in Elasticsearch.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-saml-prepare-authentication.html
-	SamlPrepareAuthentication security_saml_prepare_authentication.NewSamlPrepareAuthentication
-	// Create SAML service provider metadata.
-	//
-	// Generate SAML metadata for a SAML 2.0 Service Provider.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-saml-sp-metadata.html
-	SamlServiceProviderMetadata security_saml_service_provider_metadata.NewSamlServiceProviderMetadata
-	// Suggest a user profile.
-	//
-	// Get suggestions for user profiles that match specified search criteria.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-suggest-user-profile.html
-	SuggestUserProfiles security_suggest_user_profiles.NewSuggestUserProfiles
-	// Update an API key.
-	//
-	// Updates attributes of an existing API key.
-	// Users can only update API keys that they created or that were granted to
-	// them.
-	// Use this API to update API keys created by the create API Key or grant API
-	// Key APIs.
-	// If you need to apply the same update to many API keys, you can use bulk
-	// update API Keys to reduce overhead.
-	// It’s not possible to update expired API keys, or API keys that have been
-	// invalidated by invalidate API Key.
-	// This API supports updates to an API key’s access scope and metadata.
-	// The access scope of an API key is derived from the `role_descriptors` you
-	// specify in the request, and a snapshot of the owner user’s permissions at the
-	// time of the request.
-	// The snapshot of the owner’s permissions is updated automatically on every
-	// call.
-	// If you don’t specify `role_descriptors` in the request, a call to this API
-	// might still change the API key’s access scope.
-	// This change can occur if the owner user’s permissions have changed since the
-	// API key was created or last modified.
-	// To update another user’s API key, use the `run_as` feature to submit a
-	// request on behalf of another user.
-	// IMPORTANT: It’s not possible to use an API key as the authentication
-	// credential for this API.
-	// To update an API key, the owner user’s credentials are required.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-update-api-key.html
-	UpdateApiKey security_update_api_key.NewUpdateApiKey
-	// Update a cross-cluster API key.
-	//
-	// Update the attributes of an existing cross-cluster API key, which is used for
-	// API key based remote cluster access.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-update-cross-cluster-api-key.html
-	UpdateCrossClusterApiKey security_update_cross_cluster_api_key.NewUpdateCrossClusterApiKey
-	// Update settings for the security system index
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-update-settings.html
-	UpdateSettings security_update_settings.NewUpdateSettings
-	// Update user profile data.
-	//
-	// Update specific data for the user profile that is associated with a unique
-	// ID.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-update-user-profile-data.html
-	UpdateUserProfileData security_update_user_profile_data.NewUpdateUserProfileData
-}
-
 type Shutdown struct {
 	// Removes a node from the shutdown list. Designed for indirect use by ECE/ESS
 	// and ECK. Direct use is not supported.
@@ -1822,40 +1275,6 @@ type Shutdown struct {
 	// Direct use is not supported.
 	// https://www.elastic.co/guide/en/elasticsearch/reference/current
 	PutNode shutdown_put_node.NewPutNode
-}
-
-type Slm struct {
-	// Deletes an existing snapshot lifecycle policy.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/slm-api-delete-policy.html
-	DeleteLifecycle slm_delete_lifecycle.NewDeleteLifecycle
-	// Immediately creates a snapshot according to the lifecycle policy, without
-	// waiting for the scheduled time.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/slm-api-execute-lifecycle.html
-	ExecuteLifecycle slm_execute_lifecycle.NewExecuteLifecycle
-	// Deletes any snapshots that are expired according to the policy's retention
-	// rules.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/slm-api-execute-retention.html
-	ExecuteRetention slm_execute_retention.NewExecuteRetention
-	// Retrieves one or more snapshot lifecycle policy definitions and information
-	// about the latest snapshot attempts.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/slm-api-get-policy.html
-	GetLifecycle slm_get_lifecycle.NewGetLifecycle
-	// Returns global and policy-level statistics about actions taken by snapshot
-	// lifecycle management.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/slm-api-get-stats.html
-	GetStats slm_get_stats.NewGetStats
-	// Retrieves the status of snapshot lifecycle management (SLM).
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/slm-api-get-status.html
-	GetStatus slm_get_status.NewGetStatus
-	// Creates or updates a snapshot lifecycle policy.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/slm-api-put-policy.html
-	PutLifecycle slm_put_lifecycle.NewPutLifecycle
-	// Turns on snapshot lifecycle management (SLM).
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/slm-api-start.html
-	Start slm_start.NewStart
-	// Turns off snapshot lifecycle management (SLM).
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/slm-api-stop.html
-	Stop slm_stop.NewStop
 }
 
 type Sql struct {
@@ -1939,20 +1358,6 @@ type Synonyms struct {
 	// Creates or updates a synonym rule in a synonym set
 	// https://www.elastic.co/guide/en/elasticsearch/reference/current/put-synonym-rule.html
 	PutSynonymRule synonyms_put_synonym_rule.NewPutSynonymRule
-}
-
-type Tasks struct {
-	// Cancels a task, if it can be cancelled through an API.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/tasks.html
-	Cancel tasks_cancel.NewCancel
-	// Get task information.
-	// Returns information about the tasks currently executing in the cluster.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/tasks.html
-	Get tasks_get.NewGet
-	// The task management API returns information about tasks currently executing
-	// on one or more nodes in the cluster.
-	// https://www.elastic.co/guide/en/elasticsearch/reference/current/tasks.html
-	List tasks_list.NewList
 }
 
 type TextStructure struct {
@@ -2190,14 +1595,10 @@ type API struct {
 	QueryRules          QueryRules
 	Rollup              Rollup
 	SearchApplication   SearchApplication
-	SearchableSnapshots SearchableSnapshots
-	Security            Security
 	Shutdown            Shutdown
-	Slm                 Slm
 	Sql                 Sql
 	Ssl                 Ssl
 	Synonyms            Synonyms
-	Tasks               Tasks
 	TextStructure       TextStructure
 	Transform           Transform
 	Watcher             Watcher
@@ -2780,7 +2181,6 @@ func New(tp elastictransport.Interface) *API {
 			DeleteJob:          rollup_delete_job.NewDeleteJobFunc(tp),
 			GetJobs:            rollup_get_jobs.NewGetJobsFunc(tp),
 			GetRollupCaps:      rollup_get_rollup_caps.NewGetRollupCapsFunc(tp),
-			GetRollupIndexCaps: rollup_get_rollup_index_caps.NewGetRollupIndexCapsFunc(tp),
 			PutJob:             rollup_put_job.NewPutJobFunc(tp),
 			RollupSearch:       rollup_rollup_search.NewRollupSearchFunc(tp),
 			StartJob:           rollup_start_job.NewStartJobFunc(tp),
@@ -2799,99 +2199,11 @@ func New(tp elastictransport.Interface) *API {
 			Search:                    search_application_search.NewSearchFunc(tp),
 		},
 
-		// SearchableSnapshots
-		SearchableSnapshots: SearchableSnapshots{
-			CacheStats: searchable_snapshots_cache_stats.NewCacheStatsFunc(tp),
-			ClearCache: searchable_snapshots_clear_cache.NewClearCacheFunc(tp),
-			Mount:      searchable_snapshots_mount.NewMountFunc(tp),
-			Stats:      searchable_snapshots_stats.NewStatsFunc(tp),
-		},
-
-		// Security
-		Security: Security{
-			ActivateUserProfile:         security_activate_user_profile.NewActivateUserProfileFunc(tp),
-			Authenticate:                security_authenticate.NewAuthenticateFunc(tp),
-			BulkDeleteRole:              security_bulk_delete_role.NewBulkDeleteRoleFunc(tp),
-			BulkPutRole:                 security_bulk_put_role.NewBulkPutRoleFunc(tp),
-			BulkUpdateApiKeys:           security_bulk_update_api_keys.NewBulkUpdateApiKeysFunc(tp),
-			ChangePassword:              security_change_password.NewChangePasswordFunc(tp),
-			ClearApiKeyCache:            security_clear_api_key_cache.NewClearApiKeyCacheFunc(tp),
-			ClearCachedPrivileges:       security_clear_cached_privileges.NewClearCachedPrivilegesFunc(tp),
-			ClearCachedRealms:           security_clear_cached_realms.NewClearCachedRealmsFunc(tp),
-			ClearCachedRoles:            security_clear_cached_roles.NewClearCachedRolesFunc(tp),
-			ClearCachedServiceTokens:    security_clear_cached_service_tokens.NewClearCachedServiceTokensFunc(tp),
-			CreateApiKey:                security_create_api_key.NewCreateApiKeyFunc(tp),
-			CreateCrossClusterApiKey:    security_create_cross_cluster_api_key.NewCreateCrossClusterApiKeyFunc(tp),
-			CreateServiceToken:          security_create_service_token.NewCreateServiceTokenFunc(tp),
-			DeletePrivileges:            security_delete_privileges.NewDeletePrivilegesFunc(tp),
-			DeleteRole:                  security_delete_role.NewDeleteRoleFunc(tp),
-			DeleteRoleMapping:           security_delete_role_mapping.NewDeleteRoleMappingFunc(tp),
-			DeleteServiceToken:          security_delete_service_token.NewDeleteServiceTokenFunc(tp),
-			DeleteUser:                  security_delete_user.NewDeleteUserFunc(tp),
-			DisableUser:                 security_disable_user.NewDisableUserFunc(tp),
-			DisableUserProfile:          security_disable_user_profile.NewDisableUserProfileFunc(tp),
-			EnableUser:                  security_enable_user.NewEnableUserFunc(tp),
-			EnableUserProfile:           security_enable_user_profile.NewEnableUserProfileFunc(tp),
-			EnrollKibana:                security_enroll_kibana.NewEnrollKibanaFunc(tp),
-			EnrollNode:                  security_enroll_node.NewEnrollNodeFunc(tp),
-			GetApiKey:                   security_get_api_key.NewGetApiKeyFunc(tp),
-			GetBuiltinPrivileges:        security_get_builtin_privileges.NewGetBuiltinPrivilegesFunc(tp),
-			GetPrivileges:               security_get_privileges.NewGetPrivilegesFunc(tp),
-			GetRole:                     security_get_role.NewGetRoleFunc(tp),
-			GetRoleMapping:              security_get_role_mapping.NewGetRoleMappingFunc(tp),
-			GetServiceAccounts:          security_get_service_accounts.NewGetServiceAccountsFunc(tp),
-			GetServiceCredentials:       security_get_service_credentials.NewGetServiceCredentialsFunc(tp),
-			GetSettings:                 security_get_settings.NewGetSettingsFunc(tp),
-			GetToken:                    security_get_token.NewGetTokenFunc(tp),
-			GetUser:                     security_get_user.NewGetUserFunc(tp),
-			GetUserPrivileges:           security_get_user_privileges.NewGetUserPrivilegesFunc(tp),
-			GetUserProfile:              security_get_user_profile.NewGetUserProfileFunc(tp),
-			GrantApiKey:                 security_grant_api_key.NewGrantApiKeyFunc(tp),
-			HasPrivileges:               security_has_privileges.NewHasPrivilegesFunc(tp),
-			HasPrivilegesUserProfile:    security_has_privileges_user_profile.NewHasPrivilegesUserProfileFunc(tp),
-			InvalidateApiKey:            security_invalidate_api_key.NewInvalidateApiKeyFunc(tp),
-			InvalidateToken:             security_invalidate_token.NewInvalidateTokenFunc(tp),
-			OidcAuthenticate:            security_oidc_authenticate.NewOidcAuthenticateFunc(tp),
-			OidcLogout:                  security_oidc_logout.NewOidcLogoutFunc(tp),
-			OidcPrepareAuthentication:   security_oidc_prepare_authentication.NewOidcPrepareAuthenticationFunc(tp),
-			PutPrivileges:               security_put_privileges.NewPutPrivilegesFunc(tp),
-			PutRole:                     security_put_role.NewPutRoleFunc(tp),
-			PutRoleMapping:              security_put_role_mapping.NewPutRoleMappingFunc(tp),
-			PutUser:                     security_put_user.NewPutUserFunc(tp),
-			QueryApiKeys:                security_query_api_keys.NewQueryApiKeysFunc(tp),
-			QueryRole:                   security_query_role.NewQueryRoleFunc(tp),
-			QueryUser:                   security_query_user.NewQueryUserFunc(tp),
-			SamlAuthenticate:            security_saml_authenticate.NewSamlAuthenticateFunc(tp),
-			SamlCompleteLogout:          security_saml_complete_logout.NewSamlCompleteLogoutFunc(tp),
-			SamlInvalidate:              security_saml_invalidate.NewSamlInvalidateFunc(tp),
-			SamlLogout:                  security_saml_logout.NewSamlLogoutFunc(tp),
-			SamlPrepareAuthentication:   security_saml_prepare_authentication.NewSamlPrepareAuthenticationFunc(tp),
-			SamlServiceProviderMetadata: security_saml_service_provider_metadata.NewSamlServiceProviderMetadataFunc(tp),
-			SuggestUserProfiles:         security_suggest_user_profiles.NewSuggestUserProfilesFunc(tp),
-			UpdateApiKey:                security_update_api_key.NewUpdateApiKeyFunc(tp),
-			UpdateCrossClusterApiKey:    security_update_cross_cluster_api_key.NewUpdateCrossClusterApiKeyFunc(tp),
-			UpdateSettings:              security_update_settings.NewUpdateSettingsFunc(tp),
-			UpdateUserProfileData:       security_update_user_profile_data.NewUpdateUserProfileDataFunc(tp),
-		},
-
 		// Shutdown
 		Shutdown: Shutdown{
 			DeleteNode: shutdown_delete_node.NewDeleteNodeFunc(tp),
 			GetNode:    shutdown_get_node.NewGetNodeFunc(tp),
 			PutNode:    shutdown_put_node.NewPutNodeFunc(tp),
-		},
-
-		// Slm
-		Slm: Slm{
-			DeleteLifecycle:  slm_delete_lifecycle.NewDeleteLifecycleFunc(tp),
-			ExecuteLifecycle: slm_execute_lifecycle.NewExecuteLifecycleFunc(tp),
-			ExecuteRetention: slm_execute_retention.NewExecuteRetentionFunc(tp),
-			GetLifecycle:     slm_get_lifecycle.NewGetLifecycleFunc(tp),
-			GetStats:         slm_get_stats.NewGetStatsFunc(tp),
-			GetStatus:        slm_get_status.NewGetStatusFunc(tp),
-			PutLifecycle:     slm_put_lifecycle.NewPutLifecycleFunc(tp),
-			Start:            slm_start.NewStartFunc(tp),
-			Stop:             slm_stop.NewStopFunc(tp),
 		},
 
 		// Sql
@@ -2918,13 +2230,6 @@ func New(tp elastictransport.Interface) *API {
 			GetSynonymsSets:   synonyms_get_synonyms_sets.NewGetSynonymsSetsFunc(tp),
 			PutSynonym:        synonyms_put_synonym.NewPutSynonymFunc(tp),
 			PutSynonymRule:    synonyms_put_synonym_rule.NewPutSynonymRuleFunc(tp),
-		},
-
-		// Tasks
-		Tasks: Tasks{
-			Cancel: tasks_cancel.NewCancelFunc(tp),
-			Get:    tasks_get.NewGetFunc(tp),
-			List:   tasks_list.NewListFunc(tp),
 		},
 
 		// TextStructure

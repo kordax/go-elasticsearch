@@ -37,7 +37,6 @@ type AsyncSearch struct {
 	// Aggregations Partial aggregations results, coming from the shards that have already
 	// completed the execution of the query.
 	Aggregations map[string]Aggregate       `json:"aggregations,omitempty"`
-	Clusters_    *ClusterStatistics         `json:"_clusters,omitempty"`
 	Fields       map[string]json.RawMessage `json:"fields,omitempty"`
 	Hits         HitsMetadata               `json:"hits"`
 	MaxScore     *Float64                   `json:"max_score,omitempty"`
@@ -604,11 +603,6 @@ func (s *AsyncSearch) UnmarshalJSON(data []byte) error {
 						s.Aggregations[value] = o
 					}
 				}
-			}
-
-		case "_clusters":
-			if err := dec.Decode(&s.Clusters_); err != nil {
-				return fmt.Errorf("%s | %w", "Clusters_", err)
 			}
 
 		case "fields":

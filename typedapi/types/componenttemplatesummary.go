@@ -36,7 +36,6 @@ type ComponentTemplateSummary struct {
 	Lifecycle *DataStreamLifecycleWithRollover `json:"lifecycle,omitempty"`
 	Mappings  *TypeMapping                     `json:"mappings,omitempty"`
 	Meta_     Metadata                         `json:"_meta,omitempty"`
-	Settings  map[string]IndexSettings         `json:"settings,omitempty"`
 	Version   *int64                           `json:"version,omitempty"`
 }
 
@@ -78,14 +77,6 @@ func (s *ComponentTemplateSummary) UnmarshalJSON(data []byte) error {
 				return fmt.Errorf("%s | %w", "Meta_", err)
 			}
 
-		case "settings":
-			if s.Settings == nil {
-				s.Settings = make(map[string]IndexSettings, 0)
-			}
-			if err := dec.Decode(&s.Settings); err != nil {
-				return fmt.Errorf("%s | %w", "Settings", err)
-			}
-
 		case "version":
 			if err := dec.Decode(&s.Version); err != nil {
 				return fmt.Errorf("%s | %w", "Version", err)
@@ -100,7 +91,6 @@ func (s *ComponentTemplateSummary) UnmarshalJSON(data []byte) error {
 func NewComponentTemplateSummary() *ComponentTemplateSummary {
 	r := &ComponentTemplateSummary{
 		Aliases:  make(map[string]AliasDefinition, 0),
-		Settings: make(map[string]IndexSettings, 0),
 	}
 
 	return r

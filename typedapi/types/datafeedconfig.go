@@ -68,8 +68,6 @@ type DatafeedConfig struct {
 	// remote clusters, the machine learning nodes must have the
 	// `remote_cluster_client` role.
 	Indices []string `json:"indices,omitempty"`
-	// IndicesOptions Specifies index expansion options that are used during search.
-	IndicesOptions *IndicesOptions `json:"indices_options,omitempty"`
 	JobId          *string         `json:"job_id,omitempty"`
 	// MaxEmptySearches If a real-time datafeed has never seen any data (including during any initial
 	// training period) then it will automatically stop itself and close its
@@ -158,11 +156,6 @@ func (s *DatafeedConfig) UnmarshalJSON(data []byte) error {
 				if err := json.NewDecoder(bytes.NewReader(rawMsg)).Decode(&s.Indices); err != nil {
 					return fmt.Errorf("%s | %w", "Indices", err)
 				}
-			}
-
-		case "indices_options":
-			if err := dec.Decode(&s.IndicesOptions); err != nil {
-				return fmt.Errorf("%s | %w", "IndicesOptions", err)
 			}
 
 		case "job_id":

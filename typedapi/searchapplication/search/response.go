@@ -37,7 +37,6 @@ import (
 // https://github.com/elastic/elasticsearch-specification/blob/48e2d9de9de2911b8cb1cf715e4bc0a2b1f4b827/specification/search_application/search/SearchApplicationsSearchResponse.ts#L22-L24
 type Response struct {
 	Aggregations    map[string]types.Aggregate `json:"aggregations,omitempty"`
-	Clusters_       *types.ClusterStatistics   `json:"_clusters,omitempty"`
 	Fields          map[string]json.RawMessage `json:"fields,omitempty"`
 	Hits            types.HitsMetadata         `json:"hits"`
 	MaxScore        *types.Float64             `json:"max_score,omitempty"`
@@ -606,11 +605,6 @@ func (s *Response) UnmarshalJSON(data []byte) error {
 						s.Aggregations[value] = o
 					}
 				}
-			}
-
-		case "_clusters":
-			if err := dec.Decode(&s.Clusters_); err != nil {
-				return fmt.Errorf("%s | %w", "Clusters_", err)
 			}
 
 		case "fields":

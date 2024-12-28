@@ -76,8 +76,6 @@ type Request struct {
 	ReadPollTimeout types.Duration `json:"read_poll_timeout,omitempty"`
 	// RemoteCluster The remote cluster containing the leader index.
 	RemoteCluster string `json:"remote_cluster"`
-	// Settings Settings to override from the leader index.
-	Settings *types.IndexSettings `json:"settings,omitempty"`
 }
 
 // NewRequest returns a Request
@@ -245,11 +243,6 @@ func (s *Request) UnmarshalJSON(data []byte) error {
 				o = string(tmp[:])
 			}
 			s.RemoteCluster = o
-
-		case "settings":
-			if err := dec.Decode(&s.Settings); err != nil {
-				return fmt.Errorf("%s | %w", "Settings", err)
-			}
 
 		}
 	}

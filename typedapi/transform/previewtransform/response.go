@@ -22,15 +22,12 @@ package previewtransform
 
 import (
 	"encoding/json"
-
-	"github.com/elastic/go-elasticsearch/v8/typedapi/types"
 )
 
 // Response holds the response body struct for the package previewtransform
 //
 // https://github.com/elastic/elasticsearch-specification/blob/48e2d9de9de2911b8cb1cf715e4bc0a2b1f4b827/specification/transform/preview_transform/PreviewTransformResponse.ts#L22-L27
 type Response struct {
-	GeneratedDestIndex types.IndexState  `json:"generated_dest_index"`
 	Preview            []json.RawMessage `json:"preview"`
 }
 

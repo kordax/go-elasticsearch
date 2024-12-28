@@ -36,7 +36,6 @@ type JobUsage struct {
 	Count     int              `json:"count"`
 	CreatedBy map[string]int64 `json:"created_by"`
 	Detectors JobStatistics    `json:"detectors"`
-	Forecasts MlJobForecasts   `json:"forecasts"`
 	ModelSize JobStatistics    `json:"model_size"`
 }
 
@@ -83,12 +82,7 @@ func (s *JobUsage) UnmarshalJSON(data []byte) error {
 			if err := dec.Decode(&s.Detectors); err != nil {
 				return fmt.Errorf("%s | %w", "Detectors", err)
 			}
-
-		case "forecasts":
-			if err := dec.Decode(&s.Forecasts); err != nil {
-				return fmt.Errorf("%s | %w", "Forecasts", err)
-			}
-
+			
 		case "model_size":
 			if err := dec.Decode(&s.ModelSize); err != nil {
 				return fmt.Errorf("%s | %w", "ModelSize", err)

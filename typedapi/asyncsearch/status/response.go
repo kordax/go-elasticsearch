@@ -36,9 +36,6 @@ import (
 // https://github.com/elastic/elasticsearch-specification/blob/48e2d9de9de2911b8cb1cf715e4bc0a2b1f4b827/specification/async_search/status/AsyncSearchStatusResponse.ts#L39-L41
 type Response struct {
 
-	// Clusters_ Metadata about clusters involved in the cross-cluster search.
-	// Not shown for local-only searches.
-	Clusters_ *types.ClusterStatistics `json:"_clusters,omitempty"`
 	// CompletionStatus If the async search completed, this field shows the status code of the
 	// search.
 	// For example, 200 indicates that the async search was successfully completed.
@@ -86,12 +83,7 @@ func (s *Response) UnmarshalJSON(data []byte) error {
 		}
 
 		switch t {
-
-		case "_clusters":
-			if err := dec.Decode(&s.Clusters_); err != nil {
-				return fmt.Errorf("%s | %w", "Clusters_", err)
-			}
-
+		
 		case "completion_status":
 
 			var tmp any

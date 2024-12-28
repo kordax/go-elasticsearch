@@ -74,10 +74,6 @@ type Job struct {
 	// Elasticsearch.
 	// Only the results for anomaly detection are retained.
 	DataDescription DataDescription `json:"data_description"`
-	// DatafeedConfig The datafeed, which retrieves data from Elasticsearch for analysis by the
-	// job.
-	// You can associate only one datafeed with each anomaly detection job.
-	DatafeedConfig *MLDatafeed `json:"datafeed_config,omitempty"`
 	// Deleting Indicates that the process of deleting the job is in progress but not yet
 	// completed.
 	// It is only reported when `true`.
@@ -215,11 +211,6 @@ func (s *Job) UnmarshalJSON(data []byte) error {
 		case "data_description":
 			if err := dec.Decode(&s.DataDescription); err != nil {
 				return fmt.Errorf("%s | %w", "DataDescription", err)
-			}
-
-		case "datafeed_config":
-			if err := dec.Decode(&s.DatafeedConfig); err != nil {
-				return fmt.Errorf("%s | %w", "DatafeedConfig", err)
 			}
 
 		case "deleting":

@@ -48,9 +48,6 @@ type DataframeAnalytics struct {
 	// MemoryUsage An object describing memory usage of the analytics. It is present only after
 	// the job is started and memory usage is reported.
 	MemoryUsage DataframeAnalyticsStatsMemoryUsage `json:"memory_usage"`
-	// Node Contains properties for the node that runs the job. This information is
-	// available only for running jobs.
-	Node *NodeAttributes `json:"node,omitempty"`
 	// Progress The progress report of the data frame analytics job by phase.
 	Progress []DataframeAnalyticsStatsProgress `json:"progress"`
 	// State The status of the data frame analytics job, which can be one of the following
@@ -103,11 +100,6 @@ func (s *DataframeAnalytics) UnmarshalJSON(data []byte) error {
 		case "memory_usage":
 			if err := dec.Decode(&s.MemoryUsage); err != nil {
 				return fmt.Errorf("%s | %w", "MemoryUsage", err)
-			}
-
-		case "node":
-			if err := dec.Decode(&s.Node); err != nil {
-				return fmt.Errorf("%s | %w", "Node", err)
 			}
 
 		case "progress":

@@ -29,10 +29,6 @@ type OperationContainer struct {
 	Create *CreateOperation `json:"create,omitempty"`
 	// Delete Removes the specified document from the index.
 	Delete *DeleteOperation `json:"delete,omitempty"`
-	// Index Indexes the specified document.
-	// If the document exists, replaces the document and increments the version.
-	// The following line must contain the source data to be indexed.
-	Index *IndexOperation `json:"index,omitempty"`
 	// Update Performs a partial document update.
 	// The following line must contain the partial document and update options.
 	Update *UpdateOperation `json:"update,omitempty"`

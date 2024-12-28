@@ -43,7 +43,6 @@ type TypeMapping struct {
 	DynamicTemplates     []map[string]DynamicTemplate   `json:"dynamic_templates,omitempty"`
 	Enabled              *bool                          `json:"enabled,omitempty"`
 	FieldNames_          *FieldNamesField               `json:"_field_names,omitempty"`
-	IndexField           *IndexField                    `json:"index_field,omitempty"`
 	Meta_                Metadata                       `json:"_meta,omitempty"`
 	NumericDetection     *bool                          `json:"numeric_detection,omitempty"`
 	Properties           map[string]Property            `json:"properties,omitempty"`
@@ -126,12 +125,7 @@ func (s *TypeMapping) UnmarshalJSON(data []byte) error {
 			if err := dec.Decode(&s.FieldNames_); err != nil {
 				return fmt.Errorf("%s | %w", "FieldNames_", err)
 			}
-
-		case "index_field":
-			if err := dec.Decode(&s.IndexField); err != nil {
-				return fmt.Errorf("%s | %w", "IndexField", err)
-			}
-
+			
 		case "_meta":
 			if err := dec.Decode(&s.Meta_); err != nil {
 				return fmt.Errorf("%s | %w", "Meta_", err)
