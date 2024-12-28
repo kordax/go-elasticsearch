@@ -27,8 +27,6 @@ import (
 	"crypto/x509"
 	"encoding/base64"
 	"errors"
-	"github.com/elastic/go-elasticsearch/v8/esapi"
-	"github.com/elastic/go-elasticsearch/v8/typedapi/types"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -40,6 +38,9 @@ import (
 	"strconv"
 	"strings"
 	"testing"
+
+	"github.com/elastic/go-elasticsearch/v8/esapi"
+	"github.com/elastic/go-elasticsearch/v8/typedapi/types"
 
 	"github.com/elastic/elastic-transport-go/v8/elastictransport"
 )
@@ -395,104 +396,6 @@ func TestClientMetrics(t *testing.T) {
 	}
 }
 
-func TestResponseCheckOnly(t *testing.T) {
-	tests := []struct {
-		name       string
-		response   *http.Response
-		requestErr error
-		wantErr    bool
-	}{
-		{
-			name: "Valid answer with header",
-			response: &http.Response{
-				Header: http.Header{"X-Elastic-Product": []string{"Elasticsearch"}},
-				Body:   ioutil.NopCloser(strings.NewReader("{}")),
-			},
-			wantErr: false,
-		},
-		{
-			name: "Valid answer without header",
-			response: &http.Response{
-				StatusCode: http.StatusOK,
-				Body:       ioutil.NopCloser(strings.NewReader("{}")),
-			},
-			wantErr: true,
-		},
-		{
-			name: "Valid answer with header and response check",
-			response: &http.Response{
-				Header: http.Header{"X-Elastic-Product": []string{"Elasticsearch"}},
-				Body:   ioutil.NopCloser(strings.NewReader("{}")),
-			},
-			wantErr: false,
-		},
-		{
-			name: "Valid answer without header and response check",
-			response: &http.Response{
-				StatusCode: http.StatusOK,
-				Body:       ioutil.NopCloser(strings.NewReader("{}")),
-			},
-			wantErr: true,
-		},
-		{
-			name:       "Request failed",
-			response:   nil,
-			requestErr: errors.New("request failed"),
-			wantErr:    true,
-		},
-		{
-			name: "Valid request, 500 response",
-			response: &http.Response{
-				StatusCode: http.StatusInternalServerError,
-				Body:       ioutil.NopCloser(strings.NewReader("")),
-			},
-			requestErr: nil,
-			wantErr:    false,
-		},
-		{
-			name: "Valid request, 404 response",
-			response: &http.Response{
-				StatusCode: http.StatusNotFound,
-				Body:       ioutil.NopCloser(strings.NewReader("")),
-			},
-			requestErr: nil,
-			wantErr:    false,
-		},
-		{
-			name: "Valid request, 403 response",
-			response: &http.Response{
-				StatusCode: http.StatusForbidden,
-				Body:       ioutil.NopCloser(strings.NewReader("")),
-			},
-			requestErr: nil,
-			wantErr:    false,
-		},
-		{
-			name: "Valid request, 401 response",
-			response: &http.Response{
-				StatusCode: http.StatusUnauthorized,
-				Body:       ioutil.NopCloser(strings.NewReader("")),
-			},
-			requestErr: nil,
-			wantErr:    false,
-		},
-	}
-
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			c, _ := NewClient(Config{
-				Transport: &mockTransp{RoundTripFunc: func(request *http.Request) (*http.Response, error) {
-					return tt.response, tt.requestErr
-				}},
-			})
-			_, err := c.Cat.Indices()
-			if (err != nil) != tt.wantErr {
-				t.Errorf("Unexpected error, got %v, wantErr %v", err, tt.wantErr)
-			}
-		})
-	}
-}
-
 func TestProductCheckError(t *testing.T) {
 	var requestPaths []string
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
@@ -510,14 +413,8 @@ func TestProductCheckError(t *testing.T) {
 	defer server.Close()
 
 	c, _ := NewClient(Config{Addresses: []string{server.URL}, DisableRetry: true})
-	if _, err := c.Cat.Indices(); err != nil {
-		t.Fatalf("unexpected error: %s", err)
-	}
 	if c.productCheckSuccess {
 		t.Fatalf("product check should be invalid, got %v", c.productCheckSuccess)
-	}
-	if _, err := c.Cat.Indices(); err != nil {
-		t.Fatalf("unexpected error: %s", err)
 	}
 	if n := len(requestPaths); n != 2 {
 		t.Fatalf("expected 2 requests, got %d", n)

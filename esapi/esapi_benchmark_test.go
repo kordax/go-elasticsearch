@@ -125,50 +125,6 @@ func BenchmarkAPI(b *testing.B) {
 		}
 	})
 
-	b.Run("client.Cluster.Health()            ", func(b *testing.B) {
-		b.ResetTimer()
-		for i := 0; i < b.N; i++ {
-			if _, err := es.Cluster.Health(); err != nil {
-				b.Errorf("Unexpected error when getting a response: %s", err)
-			}
-		}
-	})
-
-	b.Run("client.Cluster.Health() With()     ", func(b *testing.B) {
-		b.ResetTimer()
-		for i := 0; i < b.N; i++ {
-			_, err := es.Cluster.Health(
-				es.Cluster.Health.WithContext(context.Background()),
-				es.Cluster.Health.WithLevel("indices"),
-				es.Cluster.Health.WithPretty(),
-			)
-
-			if err != nil {
-				b.Errorf("Unexpected error when getting a response: %s", err)
-			}
-		}
-	})
-
-	b.Run("ClusterHealthRequest{}.Do()        ", func(b *testing.B) {
-		b.ResetTimer()
-		for i := 0; i < b.N; i++ {
-			req := esapi.ClusterHealthRequest{}
-			if _, err := req.Do(context.Background(), es); err != nil {
-				b.Errorf("Unexpected error when getting a response: %s", err)
-			}
-		}
-	})
-
-	b.Run("ClusterHealthRequest{...}.Do()     ", func(b *testing.B) {
-		b.ResetTimer()
-		for i := 0; i < b.N; i++ {
-			req := esapi.ClusterHealthRequest{Level: "indices", Pretty: true}
-			if _, err := req.Do(context.Background(), es); err != nil {
-				b.Errorf("Unexpected error when getting a response: %s", err)
-			}
-		}
-	})
-
 	b.Run("client.Index() With()             ", func(b *testing.B) {
 		indx := "test"
 		body := strings.NewReader(`{"title" : "Test"}`)

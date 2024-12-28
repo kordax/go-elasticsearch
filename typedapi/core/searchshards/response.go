@@ -30,7 +30,6 @@ import (
 type Response struct {
 	Indices map[string]types.ShardStoreIndex            `json:"indices"`
 	Nodes   map[string]types.SearchShardsNodeAttributes `json:"nodes"`
-	Shards  [][]types.NodeShard                         `json:"shards"`
 }
 
 // NewResponse returns a Response

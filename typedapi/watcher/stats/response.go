@@ -30,7 +30,6 @@ import (
 type Response struct {
 	ClusterName     string                   `json:"cluster_name"`
 	ManuallyStopped bool                     `json:"manually_stopped"`
-	NodeStats       types.NodeStatistics     `json:"_nodes"`
 	Stats           []types.WatcherNodeStats `json:"stats"`
 }
 

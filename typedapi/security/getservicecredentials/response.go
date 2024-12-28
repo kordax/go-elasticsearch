@@ -30,7 +30,6 @@ import (
 type Response struct {
 	Count int `json:"count"`
 	// NodesCredentials Contains service account credentials collected from all nodes of the cluster
-	NodesCredentials types.NodesCredentials    `json:"nodes_credentials"`
 	ServiceAccount   string                    `json:"service_account"`
 	Tokens           map[string]types.Metadata `json:"tokens"`
 }

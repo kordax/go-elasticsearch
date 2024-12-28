@@ -21,7 +21,6 @@ import (
 	"encoding/base64"
 	"errors"
 	"fmt"
-	"go.opentelemetry.io/otel/trace"
 	"net/http"
 	"net/url"
 	"os"
@@ -112,23 +111,6 @@ type Config struct {
 	ConnectionPoolFunc func([]*elastictransport.Connection, elastictransport.Selector) elastictransport.ConnectionPool
 
 	Instrumentation elastictransport.Instrumentation // Enable instrumentation throughout the client.
-}
-
-// NewOpenTelemetryInstrumentation provides the OpenTelemetry integration for both low-level and TypedAPI.
-// provider is optional, if nil is passed the integration will retrieve the provider set globally by otel.
-// captureSearchBody allows to define if the search queries body should be included in the span.
-// Search endpoints are:
-//
-//	search
-//	async_search.submit
-//	msearch
-//	eql.search
-//	terms_enum
-//	search_template
-//	msearch_template
-//	render_search_template
-func NewOpenTelemetryInstrumentation(provider trace.TracerProvider, captureSearchBody bool) elastictransport.Instrumentation {
-	return elastictransport.NewOtelInstrumentation(provider, captureSearchBody, Version)
 }
 
 // BaseClient represents the Elasticsearch client.
